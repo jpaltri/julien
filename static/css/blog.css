@@ -1,0 +1,104 @@
+
+
+/* Ensure spacing for paragraphs */
+.blog-content p {
+    margin-bottom: 16px; /* Adds spacing between paragraphs */
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Ensure spacing for headings */
+.blog-content h1 {
+    margin-bottom: 32px;
+}
+.blog-content h2,
+.blog-content h3 {
+    margin-top: 42px;
+    margin-bottom: 32px;
+}
+
+.blog-content img {
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+/* Ensure spacing for lists */
+.blog-content ul, 
+.blog-content ol {
+    margin-left: 20px;
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+/* Ensure strong and emphasis tags have proper spacing */
+.blog-content strong, 
+.blog-content em {
+    margin-bottom: 5px;
+}
+
+.blog-content strong {
+    color: #040404
+}
+
+.blog-content ul {
+    list-style-type: disc !important;  /* Force bullet points */
+    list-style-position: outside !important; /* Place bullets outside the text */
+    margin-left: 1.5rem !important; /* Add left spacing */
+    padding-left: 1.5rem !important;
+}
+
+.blog-content li {
+    font-size: 1rem; /* Set normal text size */
+    line-height: 1.6 !important; /* Improve readability */
+    color: #040404 !important; /* Ensure visibility in dark mode */
+}
+
+.blog-content a {
+    color: rgb(38, 101, 249);
+    text-decoration: underline;
+}
+
+.blog-content h2 {
+    font-size: 1.5rem;
+}
+
+.blog-content h1 {
+    font-size: 1.875rem;
+}
+
+
+
+.min-height-jp {
+    min-height: 400px;
+}
+
+@media (min-width: 768px) {
+    .min-height-jp {
+        min-height: 600px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .blog-content h2 {
+        font-size: 1.875rem;
+    }
+    .blog-content h3 {
+        font-size: 1.5rem;
+    }
+    .blog-content h1 {
+        font-size: 2rem;
+    }
+    .blog-content body {
+        font-size: 1.15rem;
+    }
+    .blog-content p {
+        font-size: 1.15rem;
+    }
+    .blog-content ul {
+        font-size: 1.15rem;
+    }
+    .blog-content ol {
+        font-size: 1.15rem;
+    }
+    .blog-content li {
+        font-size: 1.15rem;
+    }
+}

@@ -7,6 +7,9 @@ from flask_wtf import FlaskForm, CSRFProtect
 from flask_wtf.file import FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, ValidationError, EmailField, URLField, TextAreaField, FileField, HiddenField, SelectField, DateTimeField, DateTimeLocalField, SelectMultipleField, DecimalRangeField, IntegerRangeField, IntegerField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, URL, Optional, NumberRange
+from email.message import EmailMessage
+import smtplib
+import os
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -119,9 +122,6 @@ def load_data():
 
 books = load_data()
 
-from email.message import EmailMessage
-import smtplib
-import os
 
 
 def send_blog_signup_email(email, name):

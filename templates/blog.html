@@ -43,7 +43,7 @@
             <span class="mb-1">The <span class="color2">Founder’s Playbook</span>:</span>
             <span class="mb-2">Startup Insights for <span class="color text-center">Entrepreneurs</span></span>
         </h1>
-        <p class="max-w-2xl mx-auto text-gray-700 mb-12">A look into my startup journey—the wins, the setbacks, and the hard-earned lessons I wish I knew earlier. Real stories, honest reflections, and actionable insights for fellow founders.</p>
+        <p class="max-w-2xl mx-auto text-gray-800 mb-12">A look into my startup journey—the wins, the setbacks, and the hard-earned lessons I wish I knew earlier. Real stories, honest reflections, and actionable insights for fellow founders.</p>
         
         <div class="flex items-center gap-3 flex-col align-center md:justify-between md:flex-row">
             <div class="flex flex-wrap gap-2">
@@ -75,7 +75,7 @@
                     <span class="text-sm text-gray-600">LAST UPDATED {{ p.date }}</span>
                 </div>
                 <h2 class="font-semibold mt-3 mb-3 hover:text-white">{{ p.title }}</h2>
-                <p class="md:text-xl text-l">{{ p.excerpt }}</p>
+                <p class="text-gray-800">{{ p.excerpt }}</p>
                 <div class="flex items-end gap-2">
                     <a href="https://twitter.com/intent/tweet?url={{ request.url_root }}p/{{ p.id }}&text={{ p.title }}"
                        target="_blank" class="social-icon text-gray-600 hover:text-gray-50">

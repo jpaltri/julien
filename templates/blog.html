@@ -5,13 +5,14 @@
 
 {% block content %}
 <style>
-    .p-4:hover > a > div.mb-3 > span:first-child { /* Tag span */
+    .p-4:hover > a > div.mb-2 > span:first-child { /* Tag span */
     background-color: rgb(245 245 244);
-    color: #27272a; /* Assuming gray-800 is close to this hex */
+    color: #27272a !important; /* Assuming gray-800 is close to this hex */
+    font-weight: bold;
     }
 
-    .p-4:hover > a > div.mb-3 > span:last-child { /* Last updated span */
-    color: rgb(208, 208, 208); /* Assuming gray-100 is close to this hex */
+    .p-4:hover > a > div.mb-2 > span:last-child { /* Last updated span */
+    color: rgb(149, 149, 149); /* Assuming gray-100 is close to this hex */
     }
 
     .p-4:hover > a > h2 { /* Title */
@@ -60,7 +61,7 @@
         <div class="p-4 border border-gray-600 rounded-xl mb-12 hover:bg-gray-800">
             <a href="/blog/{{ p.slug }}" class="mb-12">
                 <div class="mb-2 flex items-center space-x-2">
-                    <span class="bg-gray-800 text-white text-xs px-2 py-1 rounded-full hover:bg-stone-200 hover:text-gray-800">{{ p.tags[0] }}</span>
+                    <span class="bg-gray-800 text-white text-xs px-2 py-1 rounded-full ">{{ p.tags[0] }}</span>
                     <span class="text-sm text-gray-600">LAST UPDATED {{ p.date }}</span>
                 </div>
                 <h2 class="text-3xl font-semibold mb-4 hover:text-white">{{ p.title }}</h2>

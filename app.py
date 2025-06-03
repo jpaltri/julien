@@ -14,7 +14,7 @@ import os
 app = Flask(__name__)
 app.config.from_object(Config)
 csrf = CSRFProtect(app)
-
+#
 class SubscribeForm(FlaskForm):
     name = StringField('Name', validators=[
         DataRequired(message="Please enter your name"),

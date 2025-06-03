@@ -174,7 +174,6 @@ def blog():
             slug
             date
             tags
-            likes
             coverImage {
                 url
             }

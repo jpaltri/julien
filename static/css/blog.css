@@ -6,6 +6,14 @@
     line-height: 1.6; /* Improves readability */
 }
 
+.blog-content pre {
+    margin-bottom: 16px;
+    background-color: #e4e2e2;
+    border: 1px solid #9d9a9a;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
 /* Ensure spacing for headings */
 .blog-content h1 {
     margin-bottom: 32px;
@@ -14,6 +22,7 @@
 .blog-content h3 {
     margin-top: 42px;
     margin-bottom: 32px;
+    line-height: 1.1;
 }
 
 .blog-content img {
@@ -64,7 +73,9 @@
     font-size: 1.875rem;
 }
 
-
+.blog-content h3 {
+    font-size: 1.3rem;
+}
 
 .min-height-jp {
     min-height: 400px;

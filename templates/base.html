@@ -66,10 +66,10 @@
 <body class="bg-stone-100 min-h-screen flex flex-col">
     <header class="py-4 border-b border-gray-200">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
+            <a class="flex items-center gap-2" href="/">
                 <img src="/static/profile.png" alt="Profile Picture" class="w-6 h-8 rounded-md mr-2">
                 <p class="host-grotesk-400 hidden md:block">JP's Founder Journey</p>
-            </div>
+            </a>
                 <nav class="flex items-center gap-2">
                     <a href="/blog" class="nav-item px-2 py-1 rounded font-medium hover:bg-gray-100 {% if request.path == '/blog' %}font-bold bg-gray-800 text-white hover:bg-gray-800{% endif %}">Blog</a>
                     <a href="/library" class="nav-item px-2 py-1 rounded font-medium hover:bg-gray-100 {% if request.path == '/library' %}font-bold bg-gray-800 text-white{% endif %}">Library</a>

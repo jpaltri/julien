@@ -14,6 +14,10 @@
     padding: 5px 10px;
 }
 
+.blog-content ol {
+    list-style: decimal; /* Restores the default numbering (1., 2., 3., etc.) */
+}
+
 /* Ensure spacing for headings */
 .blog-content h1 {
     margin-bottom: 32px;

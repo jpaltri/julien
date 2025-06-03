@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Happy+Monkey&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/static/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/static/favicon-96x96.png" sizes="96x96" type="image/png">
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+    <meta name="theme-color" content="rgb(31 41 55 / 1)" />
+    <link rel="manifest" href="/site.webmanifest">
     <style>
         .nav-item {
             transition: all 0.2s ease;
@@ -61,7 +68,7 @@
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <img src="/static/profile.png" alt="Profile Picture" class="w-6 h-8 rounded-md mr-2">
-                <p class="host-grotesk-400 hidden md:block">JP's Reflections</p>
+                <p class="host-grotesk-400 hidden md:block">JP's Founder Journey</p>
             </div>
                 <nav class="flex items-center gap-2">
                     <a href="/blog" class="nav-item px-2 py-1 rounded font-medium hover:bg-gray-100 {% if request.path == '/blog' %}font-bold bg-gray-800 text-white hover:bg-gray-800{% endif %}">Blog</a>

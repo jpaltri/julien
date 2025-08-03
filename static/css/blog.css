@@ -170,6 +170,10 @@
     cursor: pointer;
 }
 
+.text-block p:last-child {
+    margin-bottom: 0;
+}
+
 .copy-popover {
     position: absolute;
     top: 0;

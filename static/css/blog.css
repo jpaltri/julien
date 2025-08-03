@@ -12,6 +12,7 @@
     border: 1px solid #9d9a9a;
     border-radius: 5px;
     padding: 5px 10px;
+    font-size: 0.875rem;
 }
 
 .blog-content ol {
@@ -118,6 +119,9 @@
     .min-height-jp {
         min-height: 600px;
     }
+    .blog-content h1 {
+        line-height: 2.6rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -129,6 +133,7 @@
     }
     .blog-content h1 {
         font-size: 2rem;
+        line-height: 3.2rem;
     }
     .blog-content body {
         font-size: 1.15rem;
@@ -138,6 +143,9 @@
     }
     .blog-content ul {
         font-size: 1.15rem;
+    }
+    .blog-content pre {
+        font-size: 1rem;
     }
     .blog-content ol {
         font-size: 1.15rem;

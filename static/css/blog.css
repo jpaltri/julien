@@ -169,3 +169,18 @@
     right: 5px;
     cursor: pointer;
 }
+
+.copy-popover {
+    position: absolute;
+    top: 0;
+    right: 2rem; /* Tailwind's right-8 = 2rem (8 * 0.25rem) */
+    background-color: #1f2937; /* Tailwind's bg-gray-800 */
+    color: #ffffff; /* Tailwind's text-white */
+    font-size: 0.75rem; /* Tailwind's text-xs = 0.75rem */
+    padding-left: 0.5rem; /* Tailwind's px-2 = 0.5rem left and right */
+    padding-right: 0.5rem;
+    padding-top: 0.25rem; /* Tailwind's py-1 = 0.25rem top and bottom */
+    padding-bottom: 0.25rem;
+    border-radius: 0.25rem; /* Tailwind's rounded = 0.25rem */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Tailwind's shadow-md */
+}

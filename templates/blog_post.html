@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Create the popover (initially hidden)
         const popover = document.createElement('div');
-        popover.classList.add('copy-popover', 'absolute', 'hidden', 'bg-gray-800', 'text-white', 'text-xs', 'px-2', 'py-1', 'rounded', 'shadow-md');
+        popover.classList.add('copy-popover', 'absolute', 'hidden', 'bg-gray-800', 'text-white', 'text-xs', 'px-2', 'py-1', 'rounded', 'shadow-md', 'z-10');
         popover.textContent = 'Copied!';
         textBlock.appendChild(popover);
 

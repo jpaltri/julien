@@ -156,10 +156,10 @@
 }
 
 .text-block {
-    border: 1px solid #9d9a9a;
+    border: 1px solid #bdbdbd;
     border-radius: 5px;
     padding: 10px;
-    background-color: rgb(234, 234, 225);
+    background-color: rgb(238, 238, 238);
     position: relative; /* Allows absolute positioning of the icon inside */
 }
 

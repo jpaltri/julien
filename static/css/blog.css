@@ -154,3 +154,10 @@
         font-size: 1.15rem;
     }
 }
+
+.text-block {
+    border: 1px solid #9d9a9a;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(213, 213, 210)
+}

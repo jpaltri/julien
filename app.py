@@ -214,6 +214,7 @@ def blog():
         return "Invalid response from Hygraph", 500
 
     posts = response_data['data']['posts']
+    posts = sorted(posts, key=lambda x: datetime.fromisoformat(x['date'].replace('Z', '+00:00')), reverse=True)
     # List of unique tags
     unique_tags = list(set(tag for post in posts for tag in post['tags']))
     print(f"Unique tags: {unique_tags}")  # Debugging: Print unique tags (unique_tags)

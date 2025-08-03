@@ -1,0 +1,21 @@
+# Python bytecode and cache
+__pycache__/
+*.pyc
+
+# Virtual environment (if you have one, adjust the name if needed)
+venv/
+env/
+
+# Environment variables
+.env
+
+# Editor and OS files
+.DS_Store
+*.swp
+*.swo
+
+# Logs and runtime files
+*.log
+
+# Dependency lock files (if you don't want to track them)
+Pipfile.lock

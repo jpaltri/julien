@@ -1,0 +1,60 @@
+<!-- templates/post_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block additional_head %}
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.subtitle }}">
+<meta property="og:url" content="{{ request.url_root }}post/{{ post.id }}">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto">
+    <article class="post blog-content">
+        <div class="flex items-center justify-between space-x-2">
+            <p class="mb-2 bg-gray-800 text-white px-2 py-1 rounded-full" style="font-size: 0.9rem">{{ post.tags[0] }}</p>
+        </div>
+        <h1 class="text-3xl font-bold mb-3">{{ post.title }}</h1>
+        <div class="flex justify-between mb-4">
+            <p>By <span>{{ post.author.name }}</span></p>
+            <p>Published on <span>{{ post.date }}</span></p>
+        </div>
+        
+        <div class="prose max-w-none mb-8">
+            <div class="prose">{{ post.content.html | safe }}</div>
+        </div>
+        
+        <div class="border-t border-gray-200 pt-6 mb-8">
+            <h3 class=" mb-3">Share this post</h3>
+            <div class="flex space-x-4">
+                <a href="https://twitter.com/intent/tweet?url={{ request.url }}&text={{ post.title }}" 
+                   target="_blank" class="social-icon text-gray-600 hover:text-blue-500" style="color:rgb(18, 18, 18)">
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" 
+                   target="_blank" class="social-icon text-gray-600 hover:text-blue-600" style="color:rgb(18, 18, 18)">
+                    <i class="fab fa-facebook fa-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.url }}&title={{ post.title }}" 
+                   target="_blank" class="social-icon text-gray-600 hover:text-blue-700" style="color:rgb(18, 18, 18)">
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+                <a href="mailto:?subject={{ post.title }}&body=Check out this article: {{ request.url }}" 
+                   class="social-icon text-gray-600 hover:text-red-500" style="color:rgb(18, 18, 18)">
+                    <i class="fas fa-envelope fa-lg"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="flex justify-between items-center">
+            <a href="{{ url_for('blog') }}" style="color:rgb(18, 18, 18)"class="text-gray-600 hover:text-gray-900">
+                <i class="fas fa-arrow-left mr-2"></i> Back to all posts
+            </a>
+        </div>
+    </article>
+</div>
+{% endblock %}

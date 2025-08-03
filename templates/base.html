@@ -93,7 +93,135 @@
         .background-hero-tag {
             background: linear-gradient(to right, #c6c4c3, #e9e9e9, #c6c4c3);
         }
+    .p-4:hover > a > div.mb-2 > span:first-child { /* Tag span */
+    background-color: rgb(245 245 244);
+    color: #27272a !important; /* Assuming gray-800 is close to this hex */
+    font-weight: bold;
+    }
 
+    .p-4:hover > a > div.mb-2 > span:last-child { /* Last updated span */
+    color: rgb(149, 149, 149); /* Assuming gray-100 is close to this hex */
+    }
+
+    .p-4:hover > a > h2 { /* Title */
+    color: rgb(245 245 244);
+    }
+
+    .p-4:hover > a > p { /* Excerpt */
+    color: rgb(228, 228, 228); /* Assuming gray-100 is close to this hex */
+    }
+
+    .p-4:hover > div.flex > a { /* All social icons */
+    color: rgb(208, 208, 208);
+    }
+    .p-4:hover > div.flex > a:hover { /* All social icons */
+    color: rgb(239, 239, 239);
+    }
+        .resume-button {
+            position: relative;
+            background-color: rgb(245 245 244); 
+            border: 1px solid rgb(205, 205, 205); 
+            color: #212529;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 14px;
+            font-size: 1rem;
+            line-height: 1rem;
+            text-align: center;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            max-width: 100px;
+            background-image: linear-gradient(to bottom, rgb(239, 239, 239), rgb(243, 243, 243)); 
+            transition: all 0.3s ease-in-out;
+            overflow: hidden; /* Keeps the trail contained within button */
+            --trail-color: #181b23ef;
+            --trail-color-rgb: 89, 89, 90;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .resume-button:active {
+            transform: translateY(0);
+            transition: transform 0.1s ease;
+        }
+            
+        /* Keep your original .border-trail exactly as is */
+        .border-trail {
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid transparent;
+            mask: linear-gradient(transparent, transparent), linear-gradient(#dfdede, #e7e7e7);
+            mask-clip: padding-box, border-box;
+            mask-composite: intersect;
+        }
+
+        /* Update ONLY the colors in .trail-dot to use variables */
+        .trail-dot {
+            position: absolute;
+            width: 30px;
+            aspect-ratio: 1;
+            background: radial-gradient(circle, var(--trail-color) 0%, var(--trail-color) 30%, rgba(var(--trail-color-rgb), 0.6) 60%, rgba(var(--trail-color-rgb), 0.2) 80%, transparent 100%);
+            border-radius: 50%;
+            offset-path: rect(0 auto auto 0 round 120px);
+            animation: move 6s linear infinite;
+            box-shadow: 
+                0 0 10px rgba(var(--trail-color-rgb), 0.9),
+                0 0 20px rgba(var(--trail-color-rgb), 0.6),
+                0 0 40px rgba(var(--trail-color-rgb), 0.3),
+                inset 0 0 15px rgba(var(--trail-color-rgb), 0.4),
+                inset 0 0 30px rgba(var(--trail-color-rgb), 0.2);
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        @keyframes move {
+        to { offset-distance: 100%; }
+        }
+
+        .shimmer-button {
+            position: relative;
+            overflow: hidden;
+            /* Your existing button styles */
+        }
+
+        .shimmer-button::before {
+            content: "";
+            position: absolute;
+            top: -150px;
+            left: -80%;
+            width: 300px;
+            height: 90px;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.18) 25%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0.18) 75%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(-25deg);
+            animation: shimmerSweep 5s ease-out 2s infinite;
+        }
+
+        @keyframes shimmerSweep {
+            0%, 85% {  /* Stays hidden for 90% of the time (7.2s out of 8s) */
+                left: -80%;
+                top: -150px;
+                opacity: 0;
+            }
+            86% {  /* Quick fade in */
+                opacity: 1;
+            }
+            100% {  /* Fast sweep across in just 0.8s */
+                left: 120%;
+                top: 100px;
+                opacity: 0;
+            }
+        }
     </style>
     {% block additional_head %}{% endblock %}
 </head>
@@ -223,5 +351,125 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     {% block scripts %}{% endblock %}
+    <script>
+        class SparklesEffect {
+            constructor(canvasId, options = {}) {
+                this.canvas = document.getElementById(canvasId);
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                
+                // Default options
+                this.options = {
+                    particleColor: options.particleColor || '#ffffff',
+                    minSize: options.minSize || 0.4,
+                    maxSize: options.maxSize || 1,
+                    particleDensity: options.particleDensity || 100,
+                    speed: options.speed || 1,
+                    ...options
+                };
+                
+                this.init();
+                this.createParticles();
+                this.animate();
+                this.setupResize();
+                this.setupClick();
+            }
+            
+            init() {
+                this.canvas.width = this.canvas.offsetWidth;
+                this.canvas.height = this.canvas.offsetHeight;
+            }
+            
+            createParticles() {
+                const area = this.canvas.width * this.canvas.height;
+                const numParticles = Math.floor(area / 10000 * this.options.particleDensity / 10);
+                
+                for (let i = 0; i < numParticles; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        size: Math.random() * (this.options.maxSize - this.options.minSize) + this.options.minSize,
+                        opacity: Math.random(),
+                        opacityDelta: (Math.random() - 0.5) * 0.02 * this.options.speed,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5
+                    });
+                }
+            }
+            
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                this.particles.forEach(particle => {
+                    // Update opacity with twinkling effect
+                    particle.opacity += particle.opacityDelta;
+                    if (particle.opacity <= 0.1 || particle.opacity >= 1) {
+                        particle.opacityDelta = -particle.opacityDelta;
+                    }
+                    
+                    // Update position
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    // Wrap around edges
+                    if (particle.x < 0) particle.x = this.canvas.width;
+                    if (particle.x > this.canvas.width) particle.x = 0;
+                    if (particle.y < 0) particle.y = this.canvas.height;
+                    if (particle.y > this.canvas.height) particle.y = 0;
+                    
+                    // Draw particle
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    this.ctx.fillStyle = this.options.particleColor;
+                    this.ctx.globalAlpha = particle.opacity;
+                    this.ctx.fill();
+                });
+                
+                this.ctx.globalAlpha = 1;
+                requestAnimationFrame(() => this.animate());
+            }
+            
+            setupResize() {
+                window.addEventListener('resize', () => {
+                    this.init();
+                    this.particles = [];
+                    this.createParticles();
+                });
+            }
+            
+            setupClick() {
+                this.canvas.parentElement.addEventListener('click', (e) => {
+                    const rect = this.canvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    // Add particles on click
+                    for (let i = 0; i < 4; i++) {
+                        this.particles.push({
+                            x: x + (Math.random() - 0.5) * 20,
+                            y: y + (Math.random() - 0.5) * 20,
+                            size: Math.random() * (this.options.maxSize - this.options.minSize) + this.options.minSize,
+                            opacity: 1,
+                            opacityDelta: -0.02,
+                            vx: (Math.random() - 0.5) * 2,
+                            vy: (Math.random() - 0.5) * 2
+                        });
+                    }
+                });
+            }
+        }
+        
+        // Initialize sparkle effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Third sparkles effect (The Future - Green)
+            new SparklesEffect('canvas3', {
+                particleColor: '#00ff00',
+                minSize: 0.6,
+                maxSize: 1.4,
+                particleDensity: 100,
+                speed: 0.5
+            });
+        });
+    </script>
 </body>
 </html>

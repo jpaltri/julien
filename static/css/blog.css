@@ -159,5 +159,13 @@
     border: 1px solid #9d9a9a;
     border-radius: 5px;
     padding: 10px;
-    background-color: rgb(213, 213, 210)
+    background-color: rgb(234, 234, 225);
+    position: relative; /* Allows absolute positioning of the icon inside */
+}
+
+.copy-text-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
 }

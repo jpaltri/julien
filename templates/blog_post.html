@@ -539,8 +539,13 @@
 
             // Add click event listener for copying text
             icon.addEventListener('click', function() {
-                // Get the text content of the text block, excluding icon and popover
-                const textToCopy = textBlock.childNodes[0].textContent.trim();
+                // Get all <p> elements within the text block
+                const paragraphs = textBlock.querySelectorAll('p');
+                // Combine text content of all <p> elements, separated by newlines
+                const textToCopy = Array.from(paragraphs)
+                    .map(p => p.textContent.trim())
+                    .filter(text => text.length > 0) // Exclude empty paragraphs
+                    .join('\n');
 
                 // Copy to clipboard
                 navigator.clipboard.writeText(textToCopy).then(() => {

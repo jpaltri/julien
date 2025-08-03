@@ -59,6 +59,14 @@
     line-height: 1.1;
 }
 
+.blog-content h2 {
+    font-weight: 600 !important;
+}
+
+.blog-content h3 {
+    font-weight: 500 !important;
+}
+
 .blog-content img {
     margin-bottom: 32px;
     margin-top: 32px;

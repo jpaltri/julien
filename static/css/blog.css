@@ -170,7 +170,7 @@
     cursor: pointer;
 }
 
-.text-block p:last-child {
+.blog-content .text-block p:last-child {
     margin-bottom: 0 !important;
 }
 

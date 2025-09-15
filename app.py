@@ -221,15 +221,17 @@ def blog():
 
     page = request.args.get('page', 1, type=int)
     search_query = request.args.get('search', '')
+    category = request.args.get('category', 'All')  # Define category with default value 'All'
     
-    # Filter posts based on search query if provided
+    # Filter posts based on search query or category
     filtered_posts = posts
     if search_query:
-        filtered_posts = [post for post in posts if search_query.lower() in post['title'].lower() or 
-                         search_query.lower() in post['subtitle'].lower()]
-    
-    category = request.args.get('category', 'All')
-    if category != 'All':
+        filtered_posts = [
+            post for post in posts 
+            if search_query.lower() in post['title'].lower() or
+               (post.get('content') and search_query.lower() in post['content'].get('html', '').lower())
+        ]
+    elif category != 'All':
         filtered_posts = [post for post in posts if category in post['tags']]
 
     # Pagination
